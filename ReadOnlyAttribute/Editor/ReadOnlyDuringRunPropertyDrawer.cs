@@ -2,8 +2,8 @@ using UnityEngine;
 using System.Collections;
 using UnityEditor;
 
-[CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
-public class ReadOnlyPropertyDrawer : PropertyDrawer {
+[CustomPropertyDrawer(typeof(ReadOnlyDuringRunAttribute))]
+public class ReadOnlyDuringRunPropertyDrawer : PropertyDrawer {
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
@@ -12,8 +12,9 @@ public class ReadOnlyPropertyDrawer : PropertyDrawer {
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        GUI.enabled = false;
+        GUI.enabled = !EditorApplication.isPlaying;
         EditorGUI.PropertyField(position, property, label, true);
         GUI.enabled = true;
     }
+
 }

@@ -15,6 +15,10 @@ HSV Module to support color space calculations in HSV rather than RGBA.
 ## ReadOnlyAttributes
 Flag properties with ReadOnly to still show them in UnityEditor but make them uneditable.
 
+## FX
+
+Special effects module.
+
 
 
 
